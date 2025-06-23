@@ -55,4 +55,20 @@ void insert(Mahasiswa mhs, int posisi) {
         cout << "Data mahasiswa disisipkan di posisi " << posisi << ".\n";
     }
 }
+void display() {
+    if (head == nullptr) {
+        cout << "Linked list kosong.\n";
+        return;
+    }
+
+    Node* temp = head;
+    cout << "\n== Daftar Mahasiswa ==\n";
+    while (temp != nullptr) {
+        cout << "NIM     : " << temp->data.nim << endl;
+        cout << "Nama    : " << temp->data.nama << endl;
+        cout << "Jurusan : " << temp->data.jurusan << endl;
+        cout << "-------------------------\n";
+        temp = temp->next;
+    }
+}
 
