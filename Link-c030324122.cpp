@@ -99,4 +99,52 @@ void remove(string nim) {
         cout << "Data mahasiswa dengan NIM " << nim << " berhasil dihapus.\n";
     }
 }
+int main() {
+    int pilihan, posisi;
+    Mahasiswa mhs;
+    string nimCari;
+
+    do {
+        cout << "\n=== MENU DATA MAHASISWA (LINKED LIST) ===\n";
+        cout << "1. Tambah Mahasiswa (Add)\n";
+        cout << "2. Sisipkan Mahasiswa (Insert)\n";
+        cout << "3. Tampilkan Data\n";
+        cout << "4. Hapus Mahasiswa (berdasarkan NIM)\n";
+        cout << "0. Keluar\n";
+        cout << "Pilih: ";
+        cin >> pilihan;
+
+        switch (pilihan) {
+            case 1:
+                cout << "Masukkan NIM     : "; cin >> mhs.nim;
+                cout << "Masukkan Nama    : "; cin.ignore(); getline(cin, mhs.nama);
+                cout << "Masukkan Jurusan : "; getline(cin, mhs.jurusan);
+                add(mhs);
+                break;
+            case 2:
+                cout << "Masukkan NIM     : "; cin >> mhs.nim;
+                cout << "Masukkan Nama    : "; cin.ignore(); getline(cin, mhs.nama);
+                cout << "Masukkan Jurusan : "; getline(cin, mhs.jurusan);
+                cout << "Masukkan posisi penyisipan: "; cin >> posisi;
+                insert(mhs, posisi);
+                break;
+            case 3:
+                display();
+                break;
+            case 4:
+                cout << "Masukkan NIM mahasiswa yang ingin dihapus: ";
+                cin >> nimCari;
+                remove(nimCari);
+                break;
+            case 0:
+                cout << "Program selesai.\n";
+                break;
+            default:
+                cout << "Pilihan tidak valid.\n";
+        }
+    } while (pilihan != 0);
+
+    return 0;
+}
+
 
