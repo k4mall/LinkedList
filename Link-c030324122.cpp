@@ -71,4 +71,32 @@ void display() {
         temp = temp->next;
     }
 }
+void remove(string nim) {
+    if (head == nullptr) {
+        cout << "Linked list kosong.\n";
+        return;
+    }
+
+    if (head->data.nim == nim) {
+        Node* del = head;
+        head = head->next;
+        delete del;
+        cout << "Data mahasiswa dengan NIM " << nim << " berhasil dihapus.\n";
+        return;
+    }
+
+    Node* temp = head;
+    while (temp->next != nullptr && temp->next->data.nim != nim) {
+        temp = temp->next;
+    }
+
+    if (temp->next == nullptr) {
+        cout << "Mahasiswa dengan NIM " << nim << " tidak ditemukan.\n";
+    } else {
+        Node* del = temp->next;
+        temp->next = del->next;
+        delete del;
+        cout << "Data mahasiswa dengan NIM " << nim << " berhasil dihapus.\n";
+    }
+}
 
